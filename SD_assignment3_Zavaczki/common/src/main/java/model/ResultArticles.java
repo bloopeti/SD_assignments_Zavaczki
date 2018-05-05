@@ -6,6 +6,9 @@ import java.util.List;
 public class ResultArticles {
     private List<Article> articles = new ArrayList<Article>();
 
+    public ResultArticles() {
+    }
+
     public ResultArticles(List<Article> articles) {
         this.articles = articles;
     }

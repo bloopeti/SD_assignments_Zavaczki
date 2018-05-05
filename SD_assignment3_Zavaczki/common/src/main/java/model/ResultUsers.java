@@ -6,6 +6,9 @@ import java.util.List;
 public class ResultUsers {
     private List<User> users = new ArrayList<User>();
 
+    public ResultUsers() {
+    }
+
     public ResultUsers(List<User> users) {
         this.users = users;
     }
