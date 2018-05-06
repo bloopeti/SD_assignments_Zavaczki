@@ -7,6 +7,8 @@ import commands.serialization.SerializeCommand;
 
 import model.*;
 
+import java.util.List;
+
 public class CommandFactory {
 
     public static Command getCommand(String[] args) {
@@ -32,7 +34,8 @@ public class CommandFactory {
                 case "deserialize":
                     return new DeserializeCommand(args[2], target);
                 case "deserializeFromFile":
-                    return new DeserializeFromFileCommand(target, args[2]);
+                    DeserializeFromFileCommand deserializeFromFileCommand = new DeserializeFromFileCommand(target, args[2]);
+                    return new SerializeCommand( deserializeFromFileCommand.execute() );
                 case "serialize":
 
                 default:

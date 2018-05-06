@@ -20,4 +20,14 @@ public class ResultArticles {
     public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for(Article a : articles)
+        {
+            result.concat(a.toString() + "\n");
+        }
+        return result;
+    }
 }

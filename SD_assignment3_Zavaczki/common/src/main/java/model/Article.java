@@ -37,4 +37,13 @@ public class Article {
     public void setBody(String body) {
         this.body = body;
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "title='" + title + '\'' +
+                "\nauthor='" + author + '\'' +
+                "\nbody='" + body + '\'' +
+                '}';
+    }
 }

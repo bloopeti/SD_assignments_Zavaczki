@@ -15,6 +15,7 @@ public class ClientToServerConnection extends Thread {
             while (true) {
                 Object o = inputStream.readObject();
                 //TODO process input
+                
                 System.out.println(o.toString());
             }
         } catch (IOException e) {

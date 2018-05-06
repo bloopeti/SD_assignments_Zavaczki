@@ -28,6 +28,7 @@ public class ServerToClientConnection extends Thread {
             inputStream = new ObjectInputStream(socket.getInputStream());
             while (true) {
                 String received = (String) inputStream.readObject();
+                System.out.println("Requested: " + received);
                 String[] args = received.split("\n");
                 Command command = CommandFactory.getCommand(args);
                 if (command != null) {
