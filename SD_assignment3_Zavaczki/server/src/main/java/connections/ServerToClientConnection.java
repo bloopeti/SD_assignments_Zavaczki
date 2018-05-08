@@ -32,7 +32,12 @@ public class ServerToClientConnection extends Thread {
                 String[] args = received.split("\n");
                 Command command = CommandFactory.getCommand(args);
                 if (command != null) {
-                    outputStream.writeObject(command.execute());
+                    String response = "";
+                    response = response.concat(args[0] + "\ndeserialize\n");
+                    String result = (String) command.execute();
+                    response = response.concat(result);
+                    System.out.println("Responding: " + response);
+                    outputStream.writeObject(response);
                 } else {
                     outputStream.writeObject(null);
                 }

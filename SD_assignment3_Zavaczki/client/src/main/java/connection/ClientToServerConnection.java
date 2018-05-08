@@ -1,5 +1,10 @@
 package connection;
 
+import commands.Command;
+import commands.CommandFactory;
+import commands.serialization.DeserializeCommand;
+import model.Article;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
@@ -13,10 +18,13 @@ public class ClientToServerConnection extends Thread {
     public void run() {
         try {
             while (true) {
-                Object o = inputStream.readObject();
+//                Object o = inputStream.readObject();
+                String received = (String) inputStream.readObject();
+                System.out.println("Received: " + received);
+                String[] args = received.split("\n");
                 //TODO process input
-                
-                System.out.println(o.toString());
+                Command command = CommandFactory.getCommand(args);
+                System.out.println(command.execute().toString());
             }
         } catch (IOException e) {
             e.printStackTrace();

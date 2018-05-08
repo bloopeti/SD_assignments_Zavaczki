@@ -22,8 +22,14 @@ public class Client {
             clientToServerConnection = new ClientToServerConnection(inputStream);
             clientToServerConnection.start();
             String filePath = new File("").getAbsolutePath();
-            filePath = filePath.concat("\\serialized.json");
-            String msg = "user\ndeserializeFromFile\n" + filePath;
+            filePath = filePath.concat("\\articles.json");
+            String msg = "article\ndeserializeFromFile\n" + filePath;
+            System.out.println("Requesting: " + msg) ;
+            outputStream.writeObject(msg);
+
+            filePath = new File("").getAbsolutePath();
+            filePath = filePath.concat("\\users.json");
+            msg = "user\ndeserializeFromFile\n" + filePath;
             System.out.println("Requesting: " + msg) ;
             outputStream.writeObject(msg);
         } catch (IOException e) {
