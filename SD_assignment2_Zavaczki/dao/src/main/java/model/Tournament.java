@@ -18,6 +18,12 @@ public class Tournament {
     @Column(name = "start_date")
     private String start_date;
 
+    @Column(name = "fee")
+    private int fee;
+
+    @Column(name = "total_pot")
+    private int total_pot;
+
     @OneToMany(mappedBy = "tournament")
     private Set<Match> matches = new HashSet<Match>();
 
@@ -51,6 +57,22 @@ public class Tournament {
 
     public void setStart_date(String start_date) {
         this.start_date = start_date;
+    }
+
+    public int getFee() {
+        return fee;
+    }
+
+    public void setFee(int fee) {
+        this.fee = fee;
+    }
+
+    public int getTotal_pot() {
+        return total_pot;
+    }
+
+    public void setTotal_pot(int total_pot) {
+        this.total_pot = total_pot;
     }
 
     public Set<Match> getMatches() {

@@ -11,4 +11,6 @@ public interface UserDao extends Dao<User>
     void update(User objectToUpdate);
 
     void insert(User objectToCreate);
+
+    User findByUsername(String username);
 }

@@ -10,6 +10,7 @@ public class testerUser {
         User user = new User();
         user.setUsername("dummy1");
         user.setPassword("dummy");
+        user.setBalance(100);
 
         System.out.println("inserting user");
         userDao.insert(user);

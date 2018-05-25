@@ -18,6 +18,8 @@ public class testerTour {
         Tournament tournament = new Tournament();
         tournament.setName("dummyT");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        tournament.setFee(1);
+        tournament.setTotal_pot(100);
         Date date = new Date();
         tournament.setStart_date(dateFormat.format(date));
 

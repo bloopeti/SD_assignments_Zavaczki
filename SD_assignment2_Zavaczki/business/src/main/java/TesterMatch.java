@@ -21,9 +21,11 @@ public class TesterMatch {
         User user3 = new User();
         user3.setUsername("x");
         user3.setPassword("X");
+        user3.setBalance(100);
         User user4 = new User();
         user4.setUsername("y");
         user4.setPassword("Y");
+        user4.setBalance(100);
         System.out.println("inserting user1");
         userDao.insert(user3);
         System.out.println("inserting user2");
@@ -37,6 +39,8 @@ public class TesterMatch {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         tournament3.setStart_date(dateFormat.format(date));
+        tournament3.setFee(1);
+        tournament3.setTotal_pot(100);
         System.out.println("inserting tour");
         tournamentDao.insert(tournament3);
         //tournamentDao.closeConnection();

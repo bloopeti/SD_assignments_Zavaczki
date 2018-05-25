@@ -27,4 +27,8 @@ public class JdbcUserDao implements UserDao {
     public void closeConnection() {
 
     }
+
+    public User findByUsername(String username) {
+        return null;
+    }
 }

@@ -18,6 +18,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "balance")
+    private int balance;
+
     @Column(name = "is_admin")
     private int isAdmin;
 
@@ -46,6 +49,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public int getIsAdmin() {

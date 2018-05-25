@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="id" />
+                <TableColumn prefWidth="75.0" text="name" />
+                <TableColumn prefWidth="75.0" text="start_date" />
+                <TableColumn prefWidth="75.0" text="fee" />
+                <TableColumn prefWidth="75.0" text="total_pot" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>
