@@ -1,3 +1,5 @@
+package daoTesters;
+
 import daos.GameDao;
 import daos.MatchDao;
 import daos.TournamentDao;
@@ -17,11 +19,11 @@ public class TesterGame {
         UserDao userDao = DaoFactory.getInstance(DaoFactory.Type.HIBERNATE).getUserDao();
         User user3 = new User();
         user3.setUsername("x");
-        user3.setPassword("X");
+        user3.setPass("X");
         user3.setBalance(100);
         User user4 = new User();
         user4.setUsername("y");
-        user4.setPassword("Y");
+        user4.setPass("Y");
         user4.setBalance(100);
         System.out.println("inserting user1");
         userDao.insert(user3);

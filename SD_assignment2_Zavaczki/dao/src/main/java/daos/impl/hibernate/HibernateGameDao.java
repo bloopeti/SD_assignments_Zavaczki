@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
+import java.util.List;
+
 public class HibernateGameDao implements GameDao {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
@@ -17,6 +19,15 @@ public class HibernateGameDao implements GameDao {
         Game game = (Game) currentSession.get(Game.class, id);
         transaction.commit();
         return game;
+    }
+
+    public List<Game> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        Query q = currentSession.createQuery("from Game");
+        List<Game> games = q.list();
+        transaction.commit();
+        return games;
     }
 
     public void delete(Game objectToDelete) {
@@ -47,7 +58,7 @@ public class HibernateGameDao implements GameDao {
         //currentSession.createQuery("delete from game where id= :idParameter").setLong("idParameter", id).executeUpdate();
 
         //option 2
-        Query hqlQuery = currentSession.createQuery("delete from game where id= :idParameter");
+        Query hqlQuery = currentSession.createQuery("delete from Game where id= :idParameter");
         hqlQuery.setLong("idParameter", id);
         hqlQuery.executeUpdate();
 

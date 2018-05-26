@@ -1,15 +1,17 @@
+package daoTesters;
+
 import daos.UserDao;
 import daos.factory.DaoFactory;
 import model.User;
 
-public class testerUser {
+public class TesterUser {
     public static void main(String[] args) {
         System.out.println("creating hibernate user dao");
         UserDao userDao = DaoFactory.getInstance(DaoFactory.Type.HIBERNATE).getUserDao();
 
         User user = new User();
         user.setUsername("dummy1");
-        user.setPassword("dummy");
+        user.setPass("dummy");
         user.setBalance(100);
 
         System.out.println("inserting user");

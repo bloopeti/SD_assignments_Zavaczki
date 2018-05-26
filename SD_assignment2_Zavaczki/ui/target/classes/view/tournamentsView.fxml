@@ -1,22 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TournamentsViewController">
     <children>
-        <TableView layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
-            <columns>
-                <TableColumn prefWidth="75.0" text="id" />
-                <TableColumn prefWidth="75.0" text="name" />
-                <TableColumn prefWidth="75.0" text="start_date" />
-                <TableColumn prefWidth="75.0" text="fee" />
-                <TableColumn prefWidth="75.0" text="total_pot" />
-            </columns>
-        </TableView>
+        <VBox alignment="CENTER" layoutX="50.0" layoutY="5.0">
+            <children>
+                <TableView fx:id="tournamentTable" prefHeight="300.0" prefWidth="500.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="start_date">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="start_date" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="fee">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="fee" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="total_pot">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="total_pot" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox>
+                    <children>
+                        <Button fx:id="getAllTButton" mnemonicParsing="false" onAction="#getAllT" text="GetAll">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="createTButton" mnemonicParsing="false" onAction="#createT" text="Create">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="updateTButton" mnemonicParsing="false" onAction="#updateT" text="Update">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="deleteTButton" mnemonicParsing="false" onAction="#deleteT" text="Delete">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToChoice" text="Back">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Button fx:id="selectAllButton" mnemonicParsing="false" onAction="#selectAll" text="All">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="selectFinishedButton" mnemonicParsing="false" onAction="#selectFinished" text="Finished">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="selectOngoingButton" mnemonicParsing="false" onAction="#selectOngoing" text="Ongoing">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="selectUpcomingButton" mnemonicParsing="false" onAction="#selectUpcoming" text="Upcoming">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                  <TextField fx:id="searchField" promptText="search by name">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
     </children>
 </Pane>

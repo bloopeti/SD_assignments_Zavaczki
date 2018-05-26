@@ -1,3 +1,5 @@
+package daoTesters;
+
 import daos.*;
 import daos.factory.DaoFactory;
 import model.Game;
@@ -10,7 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class testerTour {
+public class TesterTour {
     public static void main(String[] args) {
         System.out.println("creating hibernate tour dao");
         TournamentDao tournamentDao = DaoFactory.getInstance(DaoFactory.Type.HIBERNATE).getTournamentDao();

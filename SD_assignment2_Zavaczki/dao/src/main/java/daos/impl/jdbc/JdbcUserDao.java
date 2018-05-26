@@ -3,8 +3,14 @@ package daos.impl.jdbc;
 import daos.UserDao;
 import model.User;
 
+import java.util.List;
+
 public class JdbcUserDao implements UserDao {
     public User find(int id) {
+        return null;
+    }
+
+    public List<User> findAll() {
         return null;
     }
 

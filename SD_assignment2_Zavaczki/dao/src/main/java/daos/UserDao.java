@@ -2,9 +2,13 @@ package daos;
 
 import model.User;
 
+import java.util.List;
+
 public interface UserDao extends Dao<User>
 {
     User find(int id);
+
+    List<User> findAll();
 
     void delete(User objectToDelete);
 

@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
+import java.util.List;
+
 public class HibernateTournamentDao implements TournamentDao {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
@@ -17,6 +19,15 @@ public class HibernateTournamentDao implements TournamentDao {
         Tournament tournament = (Tournament) currentSession.get(Tournament.class, id);
         transaction.commit();
         return tournament;
+    }
+
+    public List<Tournament> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        Query q = currentSession.createQuery("from Tournament");
+        List<Tournament> tournaments = q.list();
+        transaction.commit();
+        return tournaments;
     }
 
     public void delete(Tournament objectToDelete) {
@@ -47,7 +58,7 @@ public class HibernateTournamentDao implements TournamentDao {
         //currentSession.createQuery("delete from tournament where id= :idParameter").setLong("idParameter", id).executeUpdate();
 
         //option 2
-        Query hqlQuery = currentSession.createQuery("delete from tournament where id= :idParameter");
+        Query hqlQuery = currentSession.createQuery("delete from Tournament where id= :idParameter");
         hqlQuery.setLong("idParameter", id);
         hqlQuery.executeUpdate();
 

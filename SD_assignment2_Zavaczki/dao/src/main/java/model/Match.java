@@ -16,21 +16,21 @@ public class Match {
     private int lvl;
 
     //@Column(name = "player1")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "player1", referencedColumnName = "id")
     private User player1;
 
     //@Column(name = "player2")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "player2", referencedColumnName = "id")
     private User player2;
 
     //@Column(name = "tournament_id")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "tournament_id", referencedColumnName = "id")
     private Tournament tournament;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "match")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "match")
     private Set<Game> games = new HashSet<Game>();
 
     public int getId() {
@@ -71,5 +71,15 @@ public class Match {
 
     public void setTournament(Tournament tournament) {
         this.tournament = tournament;
+    }
+
+    public int getPlayer1_id() {
+        return player1.getId();
+    }
+    public int getPlayer2_id() {
+        return player2.getId();
+    }
+    public int getTournament_id() {
+        return tournament.getId();
     }
 }

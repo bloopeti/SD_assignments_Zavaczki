@@ -1,4 +1,4 @@
-package Commands.User;
+package Commands.user;
 
 import daos.UserDao;
 import daos.factory.DaoFactory;
@@ -19,7 +19,7 @@ public class LoginCommand {
         User user = userDao.findByUsername(username);
         if (user == null) return null;
         if (!user.getUsername().equals(username)) return null; //wrong username
-        if (!user.getPassword().equals(password)) return null; //wrong password
+        if (!user.getPass().equals(password)) return null; //wrong password
         return user;
     }
 }

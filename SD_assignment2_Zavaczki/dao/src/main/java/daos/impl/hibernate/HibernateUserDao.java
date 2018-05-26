@@ -22,6 +22,32 @@ public class HibernateUserDao implements UserDao {
         return user;
     }
 
+    public User findByUsername(String username) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        Query q = currentSession.createQuery("from User where username = :stat").setParameter("stat", username);
+        List<User> list = q.list();
+        transaction.commit();
+        if(list.size()==0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("ERROR");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid username or password!");
+            alert.showAndWait();
+            return null;
+        }
+        return list.get(0);
+    }
+
+    public List<User> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        Query q = currentSession.createQuery("from User");
+        List<User> users = q.list();
+        transaction.commit();
+        return users;
+    }
+
     public void delete(User objectToDelete) {
         Session currentSession = sessionFactory.getCurrentSession();
         Transaction transaction = currentSession.beginTransaction();
@@ -50,7 +76,7 @@ public class HibernateUserDao implements UserDao {
         //currentSession.createQuery("delete from user where id= :idParameter").setLong("idParameter", id).executeUpdate();
 
         //option 2
-        Query hqlQuery = currentSession.createQuery("delete from user where id= :idParameter");
+        Query hqlQuery = currentSession.createQuery("delete from User where id= :idParameter");
         hqlQuery.setLong("idParameter", id);
         hqlQuery.executeUpdate();
 
@@ -59,23 +85,5 @@ public class HibernateUserDao implements UserDao {
 
     public void closeConnection() {
         sessionFactory.close();
-    }
-
-    public User findByUsername(String username) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        Transaction transaction = currentSession.beginTransaction();
-        Query q = currentSession.createQuery("from User where username = :stat").setParameter("stat", username);
-        List<User> list = q.list();
-        transaction.commit();
-        if(list.size()==0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("ERROR");
-            alert.setHeaderText(null);
-            alert.setContentText("Invalid username or password!");
-            alert.showAndWait();
-            return null;
-        }
-        User u = list.get(0);
-        return u;
     }
 }

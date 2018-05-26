@@ -24,14 +24,14 @@ public class Tournament {
     @Column(name = "total_pot")
     private int total_pot;
 
-    @OneToMany(mappedBy = "tournament")
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
     private Set<Match> matches = new HashSet<Match>();
 
     @ManyToMany
     @JoinTable(name = "enrolments", joinColumns =
-        @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        @JoinColumn(name = "tournament_id", referencedColumnName = "id"),
             inverseJoinColumns =
-            @JoinColumn(name = "tournament_id", referencedColumnName = "id")
+            @JoinColumn(name = "user_id", referencedColumnName = "id")
     )
     private Set<User> users = new HashSet<User>();
 

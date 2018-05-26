@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.MatchesViewController">
+    <children>
+        <VBox alignment="CENTER" layoutX="50.0" layoutY="14.0">
+            <children>
+                <TableView fx:id="matchesTable" prefHeight="300.0" prefWidth="500.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="lvl">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="lvl"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="player1_id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="player1_id"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="player2_id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="player2_id"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="tournament_id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="tournament_id"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox>
+                    <children>
+                        <Button fx:id="getAllMButton" mnemonicParsing="false" onAction="#getAllM" text="GetAll">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="createMButton" mnemonicParsing="false" onAction="#createM" text="Create">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="updateMButton" mnemonicParsing="false" onAction="#updateM" text="Update">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="deleteMButton" mnemonicParsing="false" onAction="#deleteM" text="Delete">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToChoice" text="Back">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</Pane>

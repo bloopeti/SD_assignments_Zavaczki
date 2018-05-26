@@ -1,6 +1,6 @@
 package controllers;
 
-import Commands.User.LoginCommand;
+import Commands.user.LoginCommand;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +28,7 @@ public class LoginViewController {
     private Button createAccButton;
 
     @FXML
-    private void login()
+    public void login()
     {
         Stage stage = (Stage) loginButton.getScene().getWindow();
         Scene scene;
@@ -41,10 +41,10 @@ public class LoginViewController {
 
         User currentUser = loginCommand.execute();
 
-        System.out.println(currentUser.getUsername()+" "+currentUser.getPassword());
+        System.out.println(currentUser.getUsername()+" "+currentUser.getPass());
 
         if(currentUser != null)
-            if(currentUser.getIsAdmin() == 1)
+            if(currentUser.getIs_admin() == 1)
             {
                 fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/choiceAdminView.fxml"));
                 root = fxmlLoader.load();
@@ -59,6 +59,26 @@ public class LoginViewController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void goToCreateAcc()
+    {
+        Stage stage = (Stage) createAccButton.getScene().getWindow();
+        Scene scene;
+        Parent root;
+        FXMLLoader fxmlLoader;
+
+        try {
+            fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/createAccView.fxml"));
+            root = fxmlLoader.load();
+
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,8 +3,14 @@ package daos.impl.jdbc;
 import daos.MatchDao;
 import model.Match;
 
+import java.util.List;
+
 public class JdbcMatchDao implements MatchDao {
     public Match find(int id) {
+        return null;
+    }
+
+    public List<Match> findAll() {
         return null;
     }
 

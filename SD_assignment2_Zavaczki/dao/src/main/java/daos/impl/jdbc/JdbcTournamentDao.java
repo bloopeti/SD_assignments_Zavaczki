@@ -3,8 +3,14 @@ package daos.impl.jdbc;
 import daos.TournamentDao;
 import model.Tournament;
 
+import java.util.List;
+
 public class JdbcTournamentDao implements TournamentDao {
     public Tournament find(int id) {
+        return null;
+    }
+
+    public List<Tournament> findAll() {
         return null;
     }
 

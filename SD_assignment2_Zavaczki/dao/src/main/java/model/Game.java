@@ -19,7 +19,7 @@ public class Game {
 //    @Column(name = "match_id")
 //    private int match_id;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.MERGE)
     @JoinColumn
     private Match match;
 
@@ -53,5 +53,9 @@ public class Game {
 
     public void setMatch(Match match) {
         this.match = match;
+    }
+
+    public int getMatch_id() {
+        return match.getId();
     }
 }

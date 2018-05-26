@@ -15,14 +15,14 @@ public class User {
     @Column(name = "username")//, nullable = false)
     private String username;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "pass")
+    private String pass;
 
     @Column(name = "balance")
     private int balance;
 
     @Column(name = "is_admin")
-    private int isAdmin;
+    private int is_admin;
 
     @ManyToMany(mappedBy = "users")
     private Set<Tournament> tournaments = new HashSet<Tournament>();
@@ -43,12 +43,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public int getBalance() {
@@ -59,12 +59,12 @@ public class User {
         this.balance = balance;
     }
 
-    public int getIsAdmin() {
-        return isAdmin;
+    public int getIs_admin() {
+        return is_admin;
     }
 
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setIs_admin(int is_admin) {
+        this.is_admin = is_admin;
     }
 
     public Set<Tournament> getTournaments() {

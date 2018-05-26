@@ -1,7 +1,11 @@
 package daos;
 
+import java.util.List;
+
 public interface Dao<T> {
     T find(int id);
+
+    List<T> findAll();
 
     void delete(T objectToDelete);
 

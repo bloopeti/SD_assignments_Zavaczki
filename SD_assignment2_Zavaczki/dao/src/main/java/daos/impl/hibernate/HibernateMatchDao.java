@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
+import java.util.List;
+
 public class HibernateMatchDao implements MatchDao {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
@@ -17,6 +19,15 @@ public class HibernateMatchDao implements MatchDao {
         Match match = (Match) currentSession.get(Match.class, id);
         transaction.commit();
         return match;
+    }
+
+    public List<Match> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        Query q = currentSession.createQuery("from Match");
+        List<Match> matches = q.list();
+        transaction.commit();
+        return matches;
     }
 
     public void delete(Match objectToDelete) {
@@ -47,7 +58,7 @@ public class HibernateMatchDao implements MatchDao {
         //currentSession.createQuery("delete from match where id= :idParameter").setLong("idParameter", id).executeUpdate();
 
         //option 2
-        Query hqlQuery = currentSession.createQuery("delete from match where id= :idParameter");
+        Query hqlQuery = currentSession.createQuery("delete from Match where id= :idParameter");
         hqlQuery.setLong("idParameter", id);
         hqlQuery.executeUpdate();
 

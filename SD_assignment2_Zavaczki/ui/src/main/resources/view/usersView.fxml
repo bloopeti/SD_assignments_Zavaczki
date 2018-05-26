@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.UsersViewController">
+    <children>
+        <VBox alignment="CENTER" layoutX="50.0" layoutY="14.0">
+            <children>
+                <TableView fx:id="userTable" prefHeight="300.0" prefWidth="500.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="username">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="username"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="pass">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="pass"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="balance">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="balance"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="is_admin">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="is_admin"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox>
+                    <children>
+                        <Button fx:id="getAllUButton" mnemonicParsing="false" onAction="#getAllU" text="GetAll">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="createUButton" mnemonicParsing="false" onAction="#createU" text="Create">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="updateUButton" mnemonicParsing="false" onAction="#updateU" text="Update">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="deleteUButton" mnemonicParsing="false" onAction="#deleteU" text="Delete">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToChoice" text="Back">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</Pane>

@@ -1,3 +1,5 @@
+package daoTesters;
+
 import daos.MatchDao;
 import daos.TournamentDao;
 import daos.UserDao;
@@ -20,11 +22,11 @@ public class TesterMatch {
         UserDao userDao = DaoFactory.getInstance(DaoFactory.Type.HIBERNATE).getUserDao();
         User user3 = new User();
         user3.setUsername("x");
-        user3.setPassword("X");
+        user3.setPass("X");
         user3.setBalance(100);
         User user4 = new User();
         user4.setUsername("y");
-        user4.setPassword("Y");
+        user4.setPass("Y");
         user4.setBalance(100);
         System.out.println("inserting user1");
         userDao.insert(user3);
@@ -35,12 +37,12 @@ public class TesterMatch {
         System.out.println("creating hibernate tour dao");
         TournamentDao tournamentDao = DaoFactory.getInstance(DaoFactory.Type.HIBERNATE).getTournamentDao();
         Tournament tournament3 = new Tournament();
-        tournament3.setName("dummyT");
+        tournament3.setName("dummyTunpaid");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         tournament3.setStart_date(dateFormat.format(date));
-        tournament3.setFee(1);
-        tournament3.setTotal_pot(100);
+        tournament3.setFee(0);
+        tournament3.setTotal_pot(0);
         System.out.println("inserting tour");
         tournamentDao.insert(tournament3);
         //tournamentDao.closeConnection();
